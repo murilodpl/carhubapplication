@@ -47,17 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexao.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Progresso.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Progresso.Designer.cs">
       <DependentUpon>Progresso.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
+    <Compile Include="CadastroOrçamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
+    <Compile Include="CadastroOrçamento.Designer.cs">
+      <DependentUpon>CadastroOrçamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Serviços.cs">
       <SubType>Form</SubType>
@@ -70,11 +76,11 @@
     <EmbeddedResource Include="Progresso.resx">
       <DependentUpon>Progresso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home.aa.resx">
-      <DependentUpon>Home.cs</DependentUpon>
+    <EmbeddedResource Include="CadastroOrçamento.aa.resx">
+      <DependentUpon>CadastroOrçamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
+    <EmbeddedResource Include="CadastroOrçamento.resx">
+      <DependentUpon>CadastroOrçamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Serviços.resx">
       <DependentUpon>Serviços.cs</DependentUpon>
