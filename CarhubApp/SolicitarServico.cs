@@ -11,11 +11,11 @@ using System.Threading;
 
 namespace CarhubApp
 {
-    public partial class CadastroOrçamentos : Form
+    public partial class SolicitarServico : Form
     {
         Thread nt;
 
-        public CadastroOrçamentos()
+        public SolicitarServico()
         {
             InitializeComponent();
         }
@@ -44,6 +44,15 @@ namespace CarhubApp
         private void tb_desc_serv_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void b_voltar_Click(object sender, EventArgs e)
+        {
+            Carhub ch = new Carhub();
+            this.Close();
+            nt = new Thread(ch.servico);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
         }
     }
 }

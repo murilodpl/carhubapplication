@@ -48,11 +48,11 @@
   <ItemGroup>
     <Compile Include="CadastroServicos.cs" />
     <Compile Include="Conexao.cs" />
-    <Compile Include="CadastroOrçamentos.cs">
+    <Compile Include="SolicitarServico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastroOrçamentos.Designer.cs">
-      <DependentUpon>CadastroOrçamentos.cs</DependentUpon>
+    <Compile Include="SolicitarServico.Designer.cs">
+      <DependentUpon>SolicitarServico.cs</DependentUpon>
     </Compile>
     <Compile Include="Progresso.cs">
       <SubType>Form</SubType>
@@ -74,8 +74,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CadastroOrçamentos.resx">
-      <DependentUpon>CadastroOrçamentos.cs</DependentUpon>
+    <EmbeddedResource Include="SolicitarServico.resx">
+      <DependentUpon>SolicitarServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Progresso.resx">
       <DependentUpon>Progresso.cs</DependentUpon>

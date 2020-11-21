@@ -30,21 +30,17 @@ namespace CarhubApp
 
         private void cad_orc()
         {
-            Application.Run(new CadastroOrçamentos());
+            Application.Run(new SolicitarServico());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Carhub ch = new Carhub();
             this.Close();
-            nt = new Thread(home);
+            nt = new Thread(ch.home);
             nt.SetApartmentState(ApartmentState.STA);
             nt.Start();
 
-        }
-
-        private void home()
-        {
-            Application.Run(new Carhub());
         }
 
         private void Form2_Load(object sender, EventArgs e)

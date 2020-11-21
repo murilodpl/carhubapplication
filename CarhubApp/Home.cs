@@ -58,11 +58,6 @@ namespace CarhubApp
             nt.Start();
         }
 
-        private void progresso()
-        {
-            Application.Run(new Progresso());
-        }
-
         private void ServicosBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -70,10 +65,21 @@ namespace CarhubApp
             nt.SetApartmentState(ApartmentState.STA);
             nt.Start();
         }
+        
+        //Caminhos para cada form
+        public void home()
+        {
+            Application.Run(new Carhub());
+        }
 
-        private void servico()
+        public void servico()
         {
             Application.Run(new Serviços());
+
+        }
+        public void progresso()
+        {
+            Application.Run(new Progresso());
         }
 
         private void Carhub_Load(object sender, EventArgs e)

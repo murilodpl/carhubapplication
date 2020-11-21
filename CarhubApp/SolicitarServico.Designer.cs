@@ -1,7 +1,7 @@
 ﻿
 namespace CarhubApp
 {
-    partial class CadastroOrçamentos
+    partial class SolicitarServico
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,7 @@ namespace CarhubApp
             this.label2 = new System.Windows.Forms.Label();
             this.tb_desc_serv = new System.Windows.Forms.RichTextBox();
             this.b_cad_serv = new System.Windows.Forms.Button();
+            this.b_voltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cadastro_serv
@@ -42,9 +43,9 @@ namespace CarhubApp
             this.cadastro_serv.ForeColor = System.Drawing.Color.White;
             this.cadastro_serv.Location = new System.Drawing.Point(28, 28);
             this.cadastro_serv.Name = "cadastro_serv";
-            this.cadastro_serv.Size = new System.Drawing.Size(152, 24);
+            this.cadastro_serv.Size = new System.Drawing.Size(143, 24);
             this.cadastro_serv.TabIndex = 0;
-            this.cadastro_serv.Text = "Cadastro Serviço";
+            this.cadastro_serv.Text = "Solicitar Serviço";
             // 
             // label2
             // 
@@ -71,21 +72,32 @@ namespace CarhubApp
             this.b_cad_serv.Name = "b_cad_serv";
             this.b_cad_serv.Size = new System.Drawing.Size(152, 23);
             this.b_cad_serv.TabIndex = 8;
-            this.b_cad_serv.Text = "Confirmar Cadastro";
+            this.b_cad_serv.Text = "Solicitar Serviço";
             this.b_cad_serv.UseVisualStyleBackColor = true;
             this.b_cad_serv.Click += new System.EventHandler(this.b_cad_serv_Click);
             // 
-            // CadastroOrçamentos
+            // b_voltar
+            // 
+            this.b_voltar.Location = new System.Drawing.Point(114, 287);
+            this.b_voltar.Name = "b_voltar";
+            this.b_voltar.Size = new System.Drawing.Size(152, 23);
+            this.b_voltar.TabIndex = 9;
+            this.b_voltar.Text = "Voltar";
+            this.b_voltar.UseVisualStyleBackColor = true;
+            this.b_voltar.Click += new System.EventHandler(this.b_voltar_Click);
+            // 
+            // SolicitarServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(797, 391);
+            this.Controls.Add(this.b_voltar);
             this.Controls.Add(this.b_cad_serv);
             this.Controls.Add(this.tb_desc_serv);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cadastro_serv);
-            this.Name = "CadastroOrçamentos";
+            this.Name = "SolicitarServico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Orçamentos";
             this.Load += new System.EventHandler(this.CadastroOrçamentos_Load);
@@ -100,5 +112,6 @@ namespace CarhubApp
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox tb_desc_serv;
         private System.Windows.Forms.Button b_cad_serv;
+        private System.Windows.Forms.Button b_voltar;
     }
 }

@@ -16,7 +16,7 @@ namespace CarhubApp
         public CadastroServicos(String desc_serv)
         {
             //Comando Sql ---SqlCommand
-            cmd.CommandText = "insert into orcamento(desc_servico) values (@desc_serv)";
+            cmd.CommandText = "insert into servicos_solicitados(desc_servico) values (@desc_serv)";
 
             //parametros
             cmd.Parameters.AddWithValue("@desc_serv", desc_serv);

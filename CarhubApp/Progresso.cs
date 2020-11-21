@@ -47,15 +47,11 @@ namespace CarhubApp
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Carhub ch = new Carhub(); 
             this.Close();
-            nt = new Thread(home);
+            nt = new Thread(ch.home);
             nt.SetApartmentState(ApartmentState.STA);
             nt.Start();
-        }
-
-        private void home()
-        {
-            Application.Run(new Carhub());
         }
     }
 }
