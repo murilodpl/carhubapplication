@@ -54,5 +54,10 @@ namespace CarhubApp
             nt.SetApartmentState(ApartmentState.STA);
             nt.Start();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
