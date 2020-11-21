@@ -14,7 +14,6 @@ namespace CarhubApp
     public partial class Serviços : Form
     {
         Thread nt;
-        //teste
         
         public Serviços()
         {
