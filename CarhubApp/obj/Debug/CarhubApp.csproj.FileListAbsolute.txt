@@ -61,3 +61,6 @@ C:\Users\calve\Documents\GitHub\carhubapplication\CarhubApp\obj\Debug\aa\CarhubA
 C:\Users\calve\Documents\GitHub\carhubapplication\CarhubApp\obj\Debug\CarhubApp.exe
 C:\Users\calve\Documents\GitHub\carhubapplication\CarhubApp\obj\Debug\CarhubApp.pdb
 C:\Users\calve\Documents\GitHub\carhubapplication\CarhubApp\obj\Debug\CarhubApp.Agenda.resources
+C:\Users\iNayi\Desktop\carhub\CarhubApp\bin\Debug\carhub.mdf
+C:\Users\iNayi\Desktop\carhub\CarhubApp\bin\Debug\carhub_log.ldf
+C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.Agenda.resources

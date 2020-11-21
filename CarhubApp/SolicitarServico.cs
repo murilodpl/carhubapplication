@@ -37,7 +37,8 @@ namespace CarhubApp
 
         private void b_cad_serv_Click(object sender, EventArgs e)
         {
-            CadastroServicos cds = new CadastroServicos(tb_desc_serv.Text);
+            CadastroServicos cds = new CadastroServicos(Convert.ToString(tb_veic.Text), Convert.ToString(cb_ano.Text), Convert.ToString(tb_desc_serv.Text));
+            
             MessageBox.Show(cds.mensagem);
         }
 

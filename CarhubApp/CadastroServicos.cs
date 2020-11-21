@@ -13,12 +13,14 @@ namespace CarhubApp
         SqlCommand cmd = new SqlCommand();
         public String mensagem = "";
 
-        public CadastroServicos(String desc_serv)
+        public CadastroServicos(String veiculo, String ano, String desc_serv)
         {
             //Comando Sql ---SqlCommand
-            cmd.CommandText = "insert into servicos_solicitados(desc_servico) values (@desc_serv)";
+            cmd.CommandText = "insert into servicos_solicitados(veiculo, ano, desc_servico) values (@veiculo, @ano, @desc_serv)";
 
             //parametros
+            cmd.Parameters.AddWithValue("@veiculo", veiculo);
+            cmd.Parameters.AddWithValue("@ano", ano);
             cmd.Parameters.AddWithValue("@desc_serv", desc_serv);
 
             try
