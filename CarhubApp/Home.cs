@@ -27,7 +27,7 @@ namespace CarhubApp
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            GlobalVariables.BackFromAgenda = 0;
             this.Close();
             nt = new Thread(agenda);
             nt.SetApartmentState(ApartmentState.STA);

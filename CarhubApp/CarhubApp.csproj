@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CadastroServicos.cs" />
+    <Compile Include="GVariaveis.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="Agenda.cs">
       <SubType>Form</SubType>

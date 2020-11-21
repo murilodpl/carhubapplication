@@ -47,5 +47,15 @@ namespace CarhubApp
         {
            
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GlobalVariables.BackFromAgenda = 1;
+            Carhub ch = new Carhub();
+            this.Close();
+            nt = new Thread(ch.agenda);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
+        }
     }
 }
