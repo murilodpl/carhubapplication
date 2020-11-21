@@ -43,3 +43,4 @@ C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.csproj.CoreCompileIn
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\aa\CarhubApp.resources.dll
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.exe
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.pdb
+C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.CadastroOrçamentos.resources

@@ -22,10 +22,16 @@ namespace CarhubApp
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            nt = new Thread(cad_orc);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
         }
 
-    
+        private void cad_orc()
+        {
+            Application.Run(new CadastroOrçamentos());
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {

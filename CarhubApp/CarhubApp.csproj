@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroServicos.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="CadastroOrçamentos.cs">
       <SubType>Form</SubType>
@@ -73,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CadastroOrçamentos.resx">
+      <DependentUpon>CadastroOrçamentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Progresso.resx">
       <DependentUpon>Progresso.cs</DependentUpon>
     </EmbeddedResource>
