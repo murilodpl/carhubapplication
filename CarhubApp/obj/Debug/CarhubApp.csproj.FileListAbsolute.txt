@@ -60,3 +60,4 @@ C:\Users\calve\Documents\GitHub\carhubapplication\CarhubApp\obj\Debug\CarhubApp.
 C:\Users\calve\Documents\GitHub\carhubapplication\CarhubApp\obj\Debug\aa\CarhubApp.resources.dll
 C:\Users\calve\Documents\GitHub\carhubapplication\CarhubApp\obj\Debug\CarhubApp.exe
 C:\Users\calve\Documents\GitHub\carhubapplication\CarhubApp\obj\Debug\CarhubApp.pdb
+C:\Users\calve\Documents\GitHub\carhubapplication\CarhubApp\obj\Debug\CarhubApp.Agenda.resources

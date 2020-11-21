@@ -28,6 +28,10 @@ namespace CarhubApp
         private void button4_Click(object sender, EventArgs e)
         {
 
+            this.Close();
+            nt = new Thread(agenda);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
         }
 
         private void HeadHomeText_Click(object sender, EventArgs e)
@@ -81,6 +85,12 @@ namespace CarhubApp
         {
             Application.Run(new Progresso());
         }
+
+        public void agenda()
+        {
+            Application.Run(new Agenda());
+        }
+
 
         private void Carhub_Load(object sender, EventArgs e)
         {
