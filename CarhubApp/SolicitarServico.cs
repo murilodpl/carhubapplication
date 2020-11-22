@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Data.SqlClient;
 
 namespace CarhubApp
 {
@@ -37,9 +38,17 @@ namespace CarhubApp
 
         private void b_cad_serv_Click(object sender, EventArgs e)
         {
-            CadastroServicos cds = new CadastroServicos(Convert.ToString(tb_veic.Text), Convert.ToString(cb_ano.Text), Convert.ToString(tb_desc_serv.Text));
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("insert into servicos_solicitados(veiculo, ano, desc_servico) values (@veiculo,@ano,@desc_servico)", con);
+            cmd.Parameters.AddWithValue("@veiculo", Convert.ToString(tb_veic.Text));
+            cmd.Parameters.AddWithValue("@ano", Convert.ToString(cb_ano.Text));
+            cmd.Parameters.AddWithValue("@desc_servico", Convert.ToString(tb_desc_serv.Text));
+            cmd.ExecuteNonQuery();
             
-            MessageBox.Show(cds.mensagem);
+            con.Close();
+
+            MessageBox.Show("Cadastrado com Sucesso!!");
         }
 
         private void tb_desc_serv_TextChanged(object sender, EventArgs e)

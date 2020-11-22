@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace CarhubApp
 {
@@ -45,8 +47,6 @@ namespace CarhubApp
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'carhub_servico.servicos_solicitados'. Você pode movê-la ou removê-la conforme necessário.
-            this.servicos_solicitadosTableAdapter1.Fill(this.carhub_servico.servicos_solicitados);
             // TODO: esta linha de código carrega dados na tabela 'carhubDataSet.servicos_solicitados'. Você pode movê-la ou removê-la conforme necessário.
             this.servicos_solicitadosTableAdapter.Fill(this.carhubDataSet.servicos_solicitados);
 
@@ -64,6 +64,20 @@ namespace CarhubApp
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void b_att_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select veiculo, desc_servico, preco, status, veic_placa from servicos_solicitados", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+            con.Close();
 
         }
     }
