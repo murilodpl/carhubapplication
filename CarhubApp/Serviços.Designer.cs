@@ -33,16 +33,25 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.carhubDataSet = new CarhubApp.carhubDataSet();
             this.servicossolicitadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carhubDataSet = new CarhubApp.carhubDataSet();
             this.servicos_solicitadosTableAdapter = new CarhubApp.carhubDataSetTableAdapters.servicos_solicitadosTableAdapter();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.carhub_servico = new CarhubApp.carhub_servico();
+            this.servicossolicitadosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.servicos_solicitadosTableAdapter1 = new CarhubApp.carhub_servicoTableAdapters.servicos_solicitadosTableAdapter();
             this.veiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descservicoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carhubDataSet)).BeginInit();
+            this.precoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataentregaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datasaidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.veicplacaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.servicossolicitadosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carhubDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carhub_servico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicossolicitadosBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -93,55 +102,93 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // dataGridView1
+            // servicossolicitadosBindingSource
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.veiculoDataGridViewTextBoxColumn,
-            this.anoDataGridViewTextBoxColumn,
-            this.descservicoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.servicossolicitadosBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 63);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(575, 161);
-            this.dataGridView1.TabIndex = 9;
+            this.servicossolicitadosBindingSource.DataMember = "servicos_solicitados";
+            this.servicossolicitadosBindingSource.DataSource = this.carhubDataSet;
             // 
             // carhubDataSet
             // 
             this.carhubDataSet.DataSetName = "carhubDataSet";
             this.carhubDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // servicossolicitadosBindingSource
-            // 
-            this.servicossolicitadosBindingSource.DataMember = "servicos_solicitados";
-            this.servicossolicitadosBindingSource.DataSource = this.carhubDataSet;
-            // 
             // servicos_solicitadosTableAdapter
             // 
             this.servicos_solicitadosTableAdapter.ClearBeforeFill = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.veiculoDataGridViewTextBoxColumn,
+            this.descservicoDataGridViewTextBoxColumn,
+            this.precoDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.dataentregaDataGridViewTextBoxColumn,
+            this.datasaidaDataGridViewTextBoxColumn,
+            this.veicplacaDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.servicossolicitadosBindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(27, 61);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(758, 175);
+            this.dataGridView1.TabIndex = 9;
+            // 
+            // carhub_servico
+            // 
+            this.carhub_servico.DataSetName = "carhub_servico";
+            this.carhub_servico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // servicossolicitadosBindingSource1
+            // 
+            this.servicossolicitadosBindingSource1.DataMember = "servicos_solicitados";
+            this.servicossolicitadosBindingSource1.DataSource = this.carhub_servico;
+            // 
+            // servicos_solicitadosTableAdapter1
+            // 
+            this.servicos_solicitadosTableAdapter1.ClearBeforeFill = true;
+            // 
             // veiculoDataGridViewTextBoxColumn
             // 
             this.veiculoDataGridViewTextBoxColumn.DataPropertyName = "veiculo";
-            this.veiculoDataGridViewTextBoxColumn.Frozen = true;
             this.veiculoDataGridViewTextBoxColumn.HeaderText = "Veículo";
             this.veiculoDataGridViewTextBoxColumn.Name = "veiculoDataGridViewTextBoxColumn";
-            this.veiculoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // anoDataGridViewTextBoxColumn
-            // 
-            this.anoDataGridViewTextBoxColumn.DataPropertyName = "ano";
-            this.anoDataGridViewTextBoxColumn.HeaderText = "Ano";
-            this.anoDataGridViewTextBoxColumn.Name = "anoDataGridViewTextBoxColumn";
-            this.anoDataGridViewTextBoxColumn.Width = 80;
             // 
             // descservicoDataGridViewTextBoxColumn
             // 
             this.descservicoDataGridViewTextBoxColumn.DataPropertyName = "desc_servico";
             this.descservicoDataGridViewTextBoxColumn.HeaderText = "Descrição Serviço";
             this.descservicoDataGridViewTextBoxColumn.Name = "descservicoDataGridViewTextBoxColumn";
-            this.descservicoDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // precoDataGridViewTextBoxColumn
+            // 
+            this.precoDataGridViewTextBoxColumn.DataPropertyName = "preco";
+            this.precoDataGridViewTextBoxColumn.HeaderText = "Preço";
+            this.precoDataGridViewTextBoxColumn.Name = "precoDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // dataentregaDataGridViewTextBoxColumn
+            // 
+            this.dataentregaDataGridViewTextBoxColumn.DataPropertyName = "data_entrega";
+            this.dataentregaDataGridViewTextBoxColumn.HeaderText = "Data Entregue";
+            this.dataentregaDataGridViewTextBoxColumn.Name = "dataentregaDataGridViewTextBoxColumn";
+            // 
+            // datasaidaDataGridViewTextBoxColumn
+            // 
+            this.datasaidaDataGridViewTextBoxColumn.DataPropertyName = "data_saida";
+            this.datasaidaDataGridViewTextBoxColumn.HeaderText = "Previsão de saida";
+            this.datasaidaDataGridViewTextBoxColumn.Name = "datasaidaDataGridViewTextBoxColumn";
+            // 
+            // veicplacaDataGridViewTextBoxColumn
+            // 
+            this.veicplacaDataGridViewTextBoxColumn.DataPropertyName = "veic_placa";
+            this.veicplacaDataGridViewTextBoxColumn.HeaderText = "Placa do Veiculo";
+            this.veicplacaDataGridViewTextBoxColumn.Name = "veicplacaDataGridViewTextBoxColumn";
             // 
             // Serviços
             // 
@@ -158,9 +205,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Serviços";
             this.Load += new System.EventHandler(this.Form2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carhubDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicossolicitadosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carhubDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carhub_servico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicossolicitadosBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,12 +221,19 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private carhubDataSet carhubDataSet;
         private System.Windows.Forms.BindingSource servicossolicitadosBindingSource;
         private carhubDataSetTableAdapters.servicos_solicitadosTableAdapter servicos_solicitadosTableAdapter;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private carhub_servico carhub_servico;
+        private System.Windows.Forms.BindingSource servicossolicitadosBindingSource1;
+        private carhub_servicoTableAdapters.servicos_solicitadosTableAdapter servicos_solicitadosTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn veiculoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn anoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descservicoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataentregaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datasaidaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn veicplacaDataGridViewTextBoxColumn;
     }
 }

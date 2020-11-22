@@ -18,7 +18,6 @@ namespace CarhubApp
         public Serviços()
         {
             InitializeComponent();
-            dataGridView1.Refresh();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -46,6 +45,8 @@ namespace CarhubApp
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'carhub_servico.servicos_solicitados'. Você pode movê-la ou removê-la conforme necessário.
+            this.servicos_solicitadosTableAdapter1.Fill(this.carhub_servico.servicos_solicitados);
             // TODO: esta linha de código carrega dados na tabela 'carhubDataSet.servicos_solicitados'. Você pode movê-la ou removê-la conforme necessário.
             this.servicos_solicitadosTableAdapter.Fill(this.carhubDataSet.servicos_solicitados);
 
@@ -59,6 +60,11 @@ namespace CarhubApp
             nt = new Thread(ch.agenda);
             nt.SetApartmentState(ApartmentState.STA);
             nt.Start();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
