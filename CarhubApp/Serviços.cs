@@ -80,5 +80,15 @@ namespace CarhubApp
             con.Close();
 
         }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void b_adm_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

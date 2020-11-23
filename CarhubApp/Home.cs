@@ -69,7 +69,14 @@ namespace CarhubApp
             nt.SetApartmentState(ApartmentState.STA);
             nt.Start();
         }
-        
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            nt = new Thread(login);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
+        }
+
         //Caminhos para cada form
         public void home()
         {
@@ -90,6 +97,10 @@ namespace CarhubApp
         {
             Application.Run(new Agenda());
         }
+        public void login()
+        {
+            Application.Run(new Login());
+        }
 
 
         private void Carhub_Load(object sender, EventArgs e)
@@ -101,5 +112,6 @@ namespace CarhubApp
         {
 
         }
+
     }
 }
