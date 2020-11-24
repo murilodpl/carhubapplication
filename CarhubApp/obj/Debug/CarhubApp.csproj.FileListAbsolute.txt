@@ -90,3 +90,4 @@ C:\Users\iNayi\Desktop\carhub\CarhubApp\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\iNayi\Desktop\carhub\CarhubApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.csproj.CopyComplete
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.Login.resources
+C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.ServiçosAgendadosVisualizar.resources

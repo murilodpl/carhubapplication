@@ -112,6 +112,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>carhubDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="carhubDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>carhubDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="carhub_servico.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +135,12 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServiçosAgendadosVisualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiçosAgendadosVisualizar.Designer.cs">
+      <DependentUpon>ServiçosAgendadosVisualizar.cs</DependentUpon>
     </Compile>
     <Compile Include="SolicitarServico.cs">
       <SubType>Form</SubType>
@@ -162,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiçosAgendadosVisualizar.resx">
+      <DependentUpon>ServiçosAgendadosVisualizar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SolicitarServico.resx">
       <DependentUpon>SolicitarServico.cs</DependentUpon>
@@ -198,6 +212,17 @@
     </None>
     <None Include="carhubDataSet.xss">
       <DependentUpon>carhubDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="carhubDataSet1.xsc">
+      <DependentUpon>carhubDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="carhubDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>carhubDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="carhubDataSet1.xss">
+      <DependentUpon>carhubDataSet1.xsd</DependentUpon>
     </None>
     <None Include="carhub_servico.xsc">
       <DependentUpon>carhub_servico.xsd</DependentUpon>

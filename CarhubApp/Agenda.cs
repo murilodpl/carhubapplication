@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Data.SqlClient;
 
 namespace CarhubApp
 {
@@ -48,15 +49,36 @@ namespace CarhubApp
                 MessageBox.Show(message);
             }
             else
-            {/*linka com o banco de dados*/
-                monthCalendar1.SelectionStart.ToShortDateString();
-                //InputVeiculo.Text;
-                // AnoComboBox.SelectedValue.ToString();
-                string message = "Sua vísita foi agendada!";
-                MessageBox.Show(message);
-                InputVeiculo.Clear();
-                AnoComboBox.SelectedIndex = -1;
+            {
+                if(InputVeiculo.Text != "" && AnoComboBox.Text != "")
+                {
+                    try
+                    {
+                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand("insert into agenda(data, veiculo, ano) values (@data, @veiculo, @ano)", con);
+                        cmd.Parameters.AddWithValue("@data", monthCalendar1.SelectionStart.ToShortDateString());
+                        cmd.Parameters.AddWithValue("@veiculo", Convert.ToString(InputVeiculo.Text));
+                        cmd.Parameters.AddWithValue("@ano", Convert.ToString(AnoComboBox.Text));
+                        cmd.ExecuteNonQuery();
+
+                        con.Close();
+
+                        MessageBox.Show("Sua visita foi agendada!");
+                    }
+                    catch (SqlException error)
+                    {
+                        MessageBox.Show("Erro marcando visita.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Erro marcando visita.");
+                }
             }
+
+
+            
         }
 
         private void InputVeiculo_TextChanged(object sender, EventArgs e)
@@ -71,6 +93,15 @@ namespace CarhubApp
             if (GlobalVariables.BackFromAgenda == 0)
                 nt = new Thread(ch.home);
             else nt = new Thread(ch.servico);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
+        }
+
+        private void b_visuA_Click(object sender, EventArgs e)
+        {
+            Carhub ch = new Carhub();
+            this.Close();
+            nt = new Thread(ch.agendavisua);
             nt.SetApartmentState(ApartmentState.STA);
             nt.Start();
         }

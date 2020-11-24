@@ -101,6 +101,10 @@ namespace CarhubApp
         {
             Application.Run(new Login());
         }
+        public void agendavisua()
+        {
+            Application.Run(new ServiçosAgendadosVisualizar());
+        }
 
 
         private void Carhub_Load(object sender, EventArgs e)
