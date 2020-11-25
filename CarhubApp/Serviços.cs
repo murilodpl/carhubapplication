@@ -99,7 +99,15 @@ namespace CarhubApp
 
         private void b_adm_Click(object sender, EventArgs e)
         {
+            this.Close();
+            nt = new Thread(adm_serv);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
+        }
 
+        private void adm_serv()
+        {
+            Application.Run(new ServiçosADM());
         }
     }
 }

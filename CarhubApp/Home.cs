@@ -116,25 +116,6 @@ namespace CarhubApp
 
         }
 
-        private void ProgressoBtn_Click(object sender, EventArgs e)
-        {
-            if (GlobalVariables.usernamelogin != null && GlobalVariables.usernamelogin != "")
-            {
-                this.Close();
-                nt = new Thread(progresso);
-                nt.SetApartmentState(ApartmentState.STA);
-                nt.Start();
-            }
-            else
-            {
-                MessageBox.Show("Logue na sua conta primeiro ou cadastre-se.");
-                this.Close();
-                nt = new Thread(login);
-                nt.SetApartmentState(ApartmentState.STA);
-                nt.Start();
-            }
-        }
-
         private void ServicosBtn_Click(object sender, EventArgs e)
         {
             if(GlobalVariables.usernamelogin != null && GlobalVariables.usernamelogin != "")
@@ -172,10 +153,6 @@ namespace CarhubApp
         {
             Application.Run(new Serviços());
 
-        }
-        public void progresso()
-        {
-            Application.Run(new Progresso());
         }
 
         public void agenda()

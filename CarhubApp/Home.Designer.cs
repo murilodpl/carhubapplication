@@ -33,13 +33,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.b_login = new System.Windows.Forms.Button();
             this.b_agenda = new System.Windows.Forms.Button();
-            this.b_prog = new System.Windows.Forms.Button();
             this.b_serv = new System.Windows.Forms.Button();
             this.b_home = new System.Windows.Forms.Button();
+            this.l_servico = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.l_agenda = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.l_servico = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -58,7 +57,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel1.Controls.Add(this.b_login);
             this.splitContainer1.Panel1.Controls.Add(this.b_agenda);
-            this.splitContainer1.Panel1.Controls.Add(this.b_prog);
             this.splitContainer1.Panel1.Controls.Add(this.b_serv);
             this.splitContainer1.Panel1.Controls.Add(this.b_home);
             this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
@@ -93,13 +91,6 @@
             this.b_agenda.UseVisualStyleBackColor = true;
             this.b_agenda.Click += new System.EventHandler(this.button4_Click);
             // 
-            // b_prog
-            // 
-            resources.ApplyResources(this.b_prog, "b_prog");
-            this.b_prog.Name = "b_prog";
-            this.b_prog.UseVisualStyleBackColor = true;
-            this.b_prog.Click += new System.EventHandler(this.ProgressoBtn_Click);
-            // 
             // b_serv
             // 
             resources.ApplyResources(this.b_serv, "b_serv");
@@ -113,6 +104,13 @@
             this.b_home.Name = "b_home";
             this.b_home.UseVisualStyleBackColor = true;
             this.b_home.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // l_servico
+            // 
+            resources.ApplyResources(this.l_servico, "l_servico");
+            this.l_servico.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.l_servico.Name = "l_servico";
+            this.l_servico.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -132,13 +130,6 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Name = "label1";
-            // 
-            // l_servico
-            // 
-            resources.ApplyResources(this.l_servico, "l_servico");
-            this.l_servico.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            this.l_servico.Name = "l_servico";
-            this.l_servico.Click += new System.EventHandler(this.label4_Click);
             // 
             // Carhub
             // 
@@ -164,7 +155,6 @@
         private System.Windows.Forms.Button b_serv;
         private System.Windows.Forms.Button b_home;
         private System.Windows.Forms.Button b_agenda;
-        private System.Windows.Forms.Button b_prog;
         private System.Windows.Forms.Button b_login;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label l_agenda;

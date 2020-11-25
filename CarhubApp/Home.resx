@@ -181,7 +181,7 @@
     <value>NoControl</value>
   </data>
   <data name="b_agenda.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 187</value>
+    <value>0, 146</value>
   </data>
   <data name="b_agenda.Size" type="System.Drawing.Size, System.Drawing">
     <value>190, 35</value>
@@ -203,33 +203,6 @@
   </data>
   <data name="&gt;&gt;b_agenda.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="b_prog.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="b_prog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 146</value>
-  </data>
-  <data name="b_prog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 35</value>
-  </data>
-  <data name="b_prog.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="b_prog.Text" xml:space="preserve">
-    <value>Progresso</value>
-  </data>
-  <data name="&gt;&gt;b_prog.Name" xml:space="preserve">
-    <value>b_prog</value>
-  </data>
-  <data name="&gt;&gt;b_prog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;b_prog.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
-  </data>
-  <data name="&gt;&gt;b_prog.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="b_serv.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -256,7 +229,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;b_serv.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="b_home.Location" type="System.Drawing.Point, System.Drawing">
     <value>1, 64</value>
@@ -280,7 +253,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;b_home.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
     <value>splitContainer1.Panel1</value>

@@ -91,3 +91,4 @@ C:\Users\iNayi\Desktop\carhub\CarhubApp\bin\Debug\System.Runtime.CompilerService
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.csproj.CopyComplete
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.Login.resources
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.ServiçosAgendadosVisualizar.resources
+C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.ServiçosADM.resources

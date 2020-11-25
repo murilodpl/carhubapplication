@@ -158,12 +158,6 @@
     <Compile Include="SolicitarServico.Designer.cs">
       <DependentUpon>SolicitarServico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Progresso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Progresso.Designer.cs">
-      <DependentUpon>Progresso.cs</DependentUpon>
-    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,9 +186,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SolicitarServico.resx">
       <DependentUpon>SolicitarServico.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Progresso.resx">
-      <DependentUpon>Progresso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.aa.resx">
       <DependentUpon>Home.cs</DependentUpon>
