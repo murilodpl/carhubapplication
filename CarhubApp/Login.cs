@@ -22,6 +22,7 @@ namespace CarhubApp
         public Login()
         {
             InitializeComponent();
+            tb_senha.PasswordChar = '*';
         }
 
         private void b_login_Click(object sender, EventArgs e)
@@ -34,6 +35,13 @@ namespace CarhubApp
                 cmd.Parameters.AddWithValue("@login", Convert.ToString(tb_usuario.Text));
                 cmd.Parameters.AddWithValue("@senha", Convert.ToString(tb_senha.Text));
                 int v = (int)cmd.ExecuteScalar();
+                con.Close(); 
+                
+                con.Open();
+                SqlCommand login = new SqlCommand("select login from usuario where login=@login AND senha=@senha", con);
+                login.Parameters.AddWithValue("@login", Convert.ToString(tb_usuario.Text));
+                login.Parameters.AddWithValue("@senha", Convert.ToString(tb_senha.Text));
+                GlobalVariables.usernamelogin = Convert.ToString(login.ExecuteScalar());
                 con.Close();
 
                 if (v > 0)
@@ -69,6 +77,7 @@ namespace CarhubApp
             {
                 MessageBox.Show("" + error);
             }
+
         }
 
         private void b_voltar_Click(object sender, EventArgs e)
@@ -81,23 +90,31 @@ namespace CarhubApp
 
         private void b_cadastrar_Click(object sender, EventArgs e)
         {
-            try
+            if(tb_usuario.Text != "" && tb_senha.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
-                con.Open();
-                SqlCommand cmd = new SqlCommand("insert into usuario(login, senha, adm) values (@login, @senha, 1)", con);
-                cmd.Parameters.AddWithValue("@login", Convert.ToString(tb_usuario.Text));
-                cmd.Parameters.AddWithValue("@senha", Convert.ToString(tb_senha.Text));
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("insert into usuario(login, senha, adm) values (@login, @senha, 1)", con);
+                    cmd.Parameters.AddWithValue("@login", Convert.ToString(tb_usuario.Text));
+                    cmd.Parameters.AddWithValue("@senha", Convert.ToString(tb_senha.Text));
+                    cmd.ExecuteNonQuery();
 
-                con.Close();
+                    con.Close();
 
-                MessageBox.Show("Cadastrado com Sucesso!!");
+                    MessageBox.Show("Cadastrado com Sucesso!!");
+                }
+                catch (SqlException error)
+                {
+                    MessageBox.Show("Cadastro inválido.");
+                }
             }
-            catch(SqlException error)
+            else
             {
                 MessageBox.Show("Cadastro inválido.");
             }
+            
         }
     }
 }

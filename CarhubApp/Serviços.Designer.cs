@@ -45,7 +45,6 @@
             this.servicossolicitadosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.carhub_servico = new CarhubApp.carhub_servico();
             this.servicos_solicitadosTableAdapter1 = new CarhubApp.carhub_servicoTableAdapters.servicos_solicitadosTableAdapter();
-            this.b_att = new System.Windows.Forms.Button();
             this.b_adm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.servicossolicitadosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carhubDataSet)).BeginInit();
@@ -177,18 +176,6 @@
             // 
             this.servicos_solicitadosTableAdapter1.ClearBeforeFill = true;
             // 
-            // b_att
-            // 
-            this.b_att.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            this.b_att.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.b_att.Location = new System.Drawing.Point(334, 242);
-            this.b_att.Name = "b_att";
-            this.b_att.Size = new System.Drawing.Size(118, 26);
-            this.b_att.TabIndex = 10;
-            this.b_att.Text = "ATUALIZAR";
-            this.b_att.UseVisualStyleBackColor = true;
-            this.b_att.Click += new System.EventHandler(this.b_att_Click);
-            // 
             // b_adm
             // 
             this.b_adm.Location = new System.Drawing.Point(710, 323);
@@ -206,7 +193,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(797, 391);
             this.Controls.Add(this.b_adm);
-            this.Controls.Add(this.b_att);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -239,7 +225,6 @@
         private carhub_servico carhub_servico;
         private System.Windows.Forms.BindingSource servicossolicitadosBindingSource1;
         private carhub_servicoTableAdapters.servicos_solicitadosTableAdapter servicos_solicitadosTableAdapter1;
-        private System.Windows.Forms.Button b_att;
         private System.Windows.Forms.DataGridViewTextBoxColumn veiculoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descservicoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precoDataGridViewTextBoxColumn;

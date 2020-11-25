@@ -20,6 +20,17 @@ namespace CarhubApp
         public Serviços()
         {
             InitializeComponent();
+
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select veiculo, desc_servico, preco, status, veic_placa from servicos_solicitados where usuario_ser=@login", con);
+            cmd.Parameters.AddWithValue("@login", GlobalVariables.usernamelogin);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+            con.Close();
         }
 
         private void button6_Click(object sender, EventArgs e)

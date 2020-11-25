@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Data.SqlClient;
 
 namespace CarhubApp
 {
@@ -18,6 +19,56 @@ namespace CarhubApp
         public Carhub()
         {
             InitializeComponent();
+
+            if(GlobalVariables.usernamelogin != null && GlobalVariables.usernamelogin != "") //Checando se o usuario esta logado
+            {
+                try
+                {
+                    //Checando se tem algum agendamento cadastrado no nome do usuario
+                    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("select count(cod_agenda) from agenda where usuario_ag=@login", con);
+                    cmd.Parameters.AddWithValue("@login", GlobalVariables.usernamelogin);
+                    int a = (int)cmd.ExecuteScalar();
+                    con.Close();
+                    if (a > 0)
+                    {
+                        l_agenda.Text = "Você tem visitas agendadas ativas!";
+                    }
+                    else
+                    {
+                        l_agenda.Text = "Aqui você pode ver seus compromissos marcados e marcar revisões e outros serviços.";
+                    }
+
+                    con.Open();
+                    SqlCommand cmd2 = new SqlCommand("select count(cod_serv) from servicos_solicitados where usuario_ser=@login", con);
+                    cmd2.Parameters.AddWithValue("@login", GlobalVariables.usernamelogin);
+                    int s = (int)cmd2.ExecuteScalar();
+                    con.Close();
+
+                    if (s > 0)
+                    {
+                        l_servico.Text = "Você ter serviços ou visitas ativas!";
+                    }
+                    else
+                    {
+                        l_servico.Text = "Você ainda não efetuou nenhum serviço com a gente, marque um agora mesmo!";
+                    }
+                }
+                catch (SqlException e)
+                {
+                    l_agenda.Text = "Aqui você pode ver seus compromissos marcados e marcar revisões e outros serviços.";
+                    l_servico.Text = "Você ainda não efetuou nenhum serviço com a gente, marque um agora mesmo!";
+                }
+            }
+            else
+            {
+                l_agenda.Text = "Logue para ver sua agenda.";
+                l_servico.Text = "Logue para ver suas visitas e serviços!";
+            }
+
+            
+
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -27,11 +78,22 @@ namespace CarhubApp
 
         private void button4_Click(object sender, EventArgs e)
         {
-            GlobalVariables.BackFromAgenda = 0;
-            this.Close();
-            nt = new Thread(agenda);
-            nt.SetApartmentState(ApartmentState.STA);
-            nt.Start();
+            if (GlobalVariables.usernamelogin != null && GlobalVariables.usernamelogin != "")
+            {
+                GlobalVariables.BackFromAgenda = 0;
+                this.Close();
+                nt = new Thread(agenda);
+                nt.SetApartmentState(ApartmentState.STA);
+                nt.Start();
+            }
+            else
+            {
+                MessageBox.Show("Logue na sua conta primeiro ou cadastre-se.");
+                this.Close();
+                nt = new Thread(login);
+                nt.SetApartmentState(ApartmentState.STA);
+                nt.Start();
+            }
         }
 
         private void HeadHomeText_Click(object sender, EventArgs e)
@@ -56,18 +118,41 @@ namespace CarhubApp
 
         private void ProgressoBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            nt = new Thread(progresso);
-            nt.SetApartmentState(ApartmentState.STA);
-            nt.Start();
+            if (GlobalVariables.usernamelogin != null && GlobalVariables.usernamelogin != "")
+            {
+                this.Close();
+                nt = new Thread(progresso);
+                nt.SetApartmentState(ApartmentState.STA);
+                nt.Start();
+            }
+            else
+            {
+                MessageBox.Show("Logue na sua conta primeiro ou cadastre-se.");
+                this.Close();
+                nt = new Thread(login);
+                nt.SetApartmentState(ApartmentState.STA);
+                nt.Start();
+            }
         }
 
         private void ServicosBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            nt = new Thread(servico);
-            nt.SetApartmentState(ApartmentState.STA);
-            nt.Start();
+            if(GlobalVariables.usernamelogin != null && GlobalVariables.usernamelogin != "")
+            {
+                this.Close();
+                nt = new Thread(servico);
+                nt.SetApartmentState(ApartmentState.STA);
+                nt.Start();
+            }
+            else
+            {
+                MessageBox.Show("Logue na sua conta primeiro ou cadastre-se.");
+                this.Close();
+                nt = new Thread(login);
+                nt.SetApartmentState(ApartmentState.STA);
+                nt.Start();
+            }
+            
         }
         private void button5_Click(object sender, EventArgs e)
         {
@@ -105,6 +190,7 @@ namespace CarhubApp
         {
             Application.Run(new ServiçosAgendadosVisualizar());
         }
+        
 
 
         private void Carhub_Load(object sender, EventArgs e)
@@ -117,5 +203,9 @@ namespace CarhubApp
 
         }
 
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

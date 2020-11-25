@@ -9,5 +9,6 @@ namespace CarhubApp
     class GlobalVariables
     {
         public static int BackFromAgenda = 0;
+        public static string usernamelogin;
     }
 }

@@ -15,6 +15,7 @@ namespace CarhubApp
     public partial class SolicitarServico : Form
     {
         Thread nt;
+        Carhub ch = new Carhub();
 
         public SolicitarServico()
         {
@@ -38,17 +39,30 @@ namespace CarhubApp
 
         private void b_cad_serv_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("insert into servicos_solicitados(veiculo, ano, desc_servico) values (@veiculo,@ano,@desc_servico)", con);
-            cmd.Parameters.AddWithValue("@veiculo", Convert.ToString(tb_veic.Text));
-            cmd.Parameters.AddWithValue("@ano", Convert.ToString(cb_ano.Text));
-            cmd.Parameters.AddWithValue("@desc_servico", Convert.ToString(tb_desc_serv.Text));
-            cmd.ExecuteNonQuery();
-            
-            con.Close();
+            try
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
+                con.Open();
+                SqlCommand cmd = new SqlCommand("insert into servicos_solicitados(veiculo, ano, desc_servico, usuario_ser) values (@veiculo,@ano,@desc_servico,@user)", con);
+                cmd.Parameters.AddWithValue("@veiculo", Convert.ToString(tb_veic.Text));
+                cmd.Parameters.AddWithValue("@ano", Convert.ToString(cb_ano.Text));
+                cmd.Parameters.AddWithValue("@desc_servico", Convert.ToString(tb_desc_serv.Text));
+                cmd.Parameters.AddWithValue("@user", GlobalVariables.usernamelogin);
+                cmd.ExecuteNonQuery();
 
-            MessageBox.Show("Cadastrado com Sucesso!!");
+                con.Close();
+
+                MessageBox.Show("Cadastrado com Sucesso!!");
+
+                this.Close();
+                nt = new Thread(ch.servico);
+                nt.SetApartmentState(ApartmentState.STA);
+                nt.Start();
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("Erro no cadastro! " + Convert.ToString(ex));
+            }
         }
 
         private void tb_desc_serv_TextChanged(object sender, EventArgs e)
@@ -58,7 +72,6 @@ namespace CarhubApp
 
         private void b_voltar_Click(object sender, EventArgs e)
         {
-            Carhub ch = new Carhub();
             this.Close();
             nt = new Thread(ch.servico);
             nt.SetApartmentState(ApartmentState.STA);

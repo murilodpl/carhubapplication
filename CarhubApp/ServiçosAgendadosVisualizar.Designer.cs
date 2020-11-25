@@ -31,17 +31,17 @@ namespace CarhubApp
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV_Agenda = new System.Windows.Forms.DataGridView();
             this.codagendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.veiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.anoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario_ag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carhubDataSet1 = new CarhubApp.carhubDataSet1();
             this.agendaTableAdapter = new CarhubApp.carhubDataSet1TableAdapters.agendaTableAdapter();
             this.b_voltar = new System.Windows.Forms.Button();
-            this.b_atualizar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Agenda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agendaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carhubDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -58,20 +58,21 @@ namespace CarhubApp
             this.label1.TabIndex = 3;
             this.label1.Text = "Agenda";
             // 
-            // dataGridView1
+            // DGV_Agenda
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGV_Agenda.AutoGenerateColumns = false;
+            this.DGV_Agenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Agenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codagendaDataGridViewTextBoxColumn,
             this.dataDataGridViewTextBoxColumn,
             this.veiculoDataGridViewTextBoxColumn,
-            this.anoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.agendaBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 64);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(546, 205);
-            this.dataGridView1.TabIndex = 4;
+            this.anoDataGridViewTextBoxColumn,
+            this.usuario_ag});
+            this.DGV_Agenda.DataSource = this.agendaBindingSource;
+            this.DGV_Agenda.Location = new System.Drawing.Point(27, 64);
+            this.DGV_Agenda.Name = "DGV_Agenda";
+            this.DGV_Agenda.Size = new System.Drawing.Size(647, 205);
+            this.DGV_Agenda.TabIndex = 4;
             // 
             // codagendaDataGridViewTextBoxColumn
             // 
@@ -100,6 +101,12 @@ namespace CarhubApp
             this.anoDataGridViewTextBoxColumn.HeaderText = "Ano";
             this.anoDataGridViewTextBoxColumn.Name = "anoDataGridViewTextBoxColumn";
             // 
+            // usuario_ag
+            // 
+            this.usuario_ag.DataPropertyName = "usuario_ag";
+            this.usuario_ag.HeaderText = "Usuário";
+            this.usuario_ag.Name = "usuario_ag";
+            // 
             // agendaBindingSource
             // 
             this.agendaBindingSource.DataMember = "agenda";
@@ -116,7 +123,7 @@ namespace CarhubApp
             // 
             // b_voltar
             // 
-            this.b_voltar.Location = new System.Drawing.Point(27, 316);
+            this.b_voltar.Location = new System.Drawing.Point(27, 296);
             this.b_voltar.Name = "b_voltar";
             this.b_voltar.Size = new System.Drawing.Size(75, 23);
             this.b_voltar.TabIndex = 5;
@@ -124,30 +131,20 @@ namespace CarhubApp
             this.b_voltar.UseVisualStyleBackColor = true;
             this.b_voltar.Click += new System.EventHandler(this.b_voltar_Click);
             // 
-            // b_atualizar
-            // 
-            this.b_atualizar.Location = new System.Drawing.Point(27, 287);
-            this.b_atualizar.Name = "b_atualizar";
-            this.b_atualizar.Size = new System.Drawing.Size(75, 23);
-            this.b_atualizar.TabIndex = 6;
-            this.b_atualizar.Text = "Exibir";
-            this.b_atualizar.UseVisualStyleBackColor = true;
-            // 
             // ServiçosAgendadosVisualizar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(797, 391);
-            this.Controls.Add(this.b_atualizar);
             this.Controls.Add(this.b_voltar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGV_Agenda);
             this.Controls.Add(this.label1);
             this.Name = "ServiçosAgendadosVisualizar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ServiçosAgendadosVisualizar";
             this.Load += new System.EventHandler(this.ServiçosAgendadosVisualizar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Agenda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agendaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carhubDataSet1)).EndInit();
             this.ResumeLayout(false);
@@ -158,15 +155,15 @@ namespace CarhubApp
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV_Agenda;
         private carhubDataSet1 carhubDataSet1;
         private System.Windows.Forms.BindingSource agendaBindingSource;
         private carhubDataSet1TableAdapters.agendaTableAdapter agendaTableAdapter;
+        private System.Windows.Forms.Button b_voltar;
         private System.Windows.Forms.DataGridViewTextBoxColumn codagendaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn veiculoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn anoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button b_voltar;
-        private System.Windows.Forms.Button b_atualizar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuario_ag;
     }
 }

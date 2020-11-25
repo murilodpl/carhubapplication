@@ -15,6 +15,8 @@ namespace CarhubApp
     public partial class Agenda : Form
     {
         Thread nt;
+        Carhub ch = new Carhub();
+
         public Agenda()
         {
             InitializeComponent();
@@ -52,24 +54,40 @@ namespace CarhubApp
             {
                 if(InputVeiculo.Text != "" && AnoComboBox.Text != "")
                 {
-                    try
+                    if(GlobalVariables.usernamelogin != null && GlobalVariables.usernamelogin != "")
                     {
-                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand("insert into agenda(data, veiculo, ano) values (@data, @veiculo, @ano)", con);
-                        cmd.Parameters.AddWithValue("@data", monthCalendar1.SelectionStart.ToShortDateString());
-                        cmd.Parameters.AddWithValue("@veiculo", Convert.ToString(InputVeiculo.Text));
-                        cmd.Parameters.AddWithValue("@ano", Convert.ToString(AnoComboBox.Text));
-                        cmd.ExecuteNonQuery();
+                        try
+                        {
+                            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
+                            con.Open();
+                            SqlCommand cmd = new SqlCommand("insert into agenda(data, veiculo, ano, usuario_ag) values (@data, @veiculo, @ano, @usuario_ag)", con);
+                            cmd.Parameters.AddWithValue("@data", monthCalendar1.SelectionStart.ToShortDateString());
+                            cmd.Parameters.AddWithValue("@veiculo", Convert.ToString(InputVeiculo.Text));
+                            cmd.Parameters.AddWithValue("@ano", Convert.ToString(AnoComboBox.Text));
+                            cmd.Parameters.AddWithValue("@usuario_ag", GlobalVariables.usernamelogin);
+                            cmd.ExecuteNonQuery();
 
-                        con.Close();
+                            con.Close();
 
-                        MessageBox.Show("Sua visita foi agendada!");
+                            MessageBox.Show("Sua visita foi agendada!");
+
+                            this.Close();
+                            if (GlobalVariables.BackFromAgenda == 0)
+                                nt = new Thread(ch.home);
+                            else nt = new Thread(ch.servico);
+                            nt.SetApartmentState(ApartmentState.STA);
+                            nt.Start();
+                        }
+                        catch (SqlException error)
+                        {
+                            MessageBox.Show("Erro marcando visita.");
+                        }
                     }
-                    catch (SqlException error)
+                    else
                     {
-                        MessageBox.Show("Erro marcando visita.");
+                        MessageBox.Show("Logue na sua conta primeiro.");
                     }
+                    
                 }
                 else
                 {
@@ -88,7 +106,6 @@ namespace CarhubApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Carhub ch = new Carhub();
             this.Close();
             if (GlobalVariables.BackFromAgenda == 0)
                 nt = new Thread(ch.home);

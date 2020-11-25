@@ -123,7 +123,6 @@
       <DependentUpon>carhub_servico.xsd</DependentUpon>
     </Compile>
     <Compile Include="GVariaveis.cs" />
-    <Compile Include="Conexao.cs" />
     <Compile Include="Agenda.cs">
       <SubType>Form</SubType>
     </Compile>
