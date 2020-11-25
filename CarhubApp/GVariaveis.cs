@@ -10,5 +10,6 @@ namespace CarhubApp
     {
         public static int BackFromAgenda = 0;
         public static string usernamelogin;
+        public static int adm;
     }
 }

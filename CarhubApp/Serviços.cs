@@ -31,6 +31,15 @@ namespace CarhubApp
             dataGridView1.DataSource = dt;
 
             con.Close();
+
+            if (GlobalVariables.adm == 1) //ADM FALSE
+            {
+                b_adm.Hide(); //Faz o botão adm sumir
+            }
+            else
+            {
+                b_adm.Show(); //Faz o botão adm aparecer
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)

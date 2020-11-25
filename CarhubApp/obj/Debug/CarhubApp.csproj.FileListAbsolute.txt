@@ -33,7 +33,6 @@ C:\Users\iNayi\Desktop\carhub\CarhubApp\bin\Debug\CarhubApp.exe
 C:\Users\iNayi\Desktop\carhub\CarhubApp\bin\Debug\CarhubApp.pdb
 C:\Users\iNayi\Desktop\carhub\CarhubApp\bin\Debug\aa\CarhubApp.resources.dll
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.csprojAssemblyReference.cache
-C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.Progresso.resources
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.Carhub.resources
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.Serviços.resources
 C:\Users\iNayi\Desktop\carhub\CarhubApp\obj\Debug\CarhubApp.Properties.Resources.resources

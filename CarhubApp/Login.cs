@@ -17,8 +17,6 @@ namespace CarhubApp
         Thread nt;
         Carhub ch = new Carhub();
 
-        public bool adm = false;
-
         public Login()
         {
             InitializeComponent();
@@ -57,11 +55,11 @@ namespace CarhubApp
 
                     if (l == 0)
                     {
-                        adm = true;
+                        GlobalVariables.adm = 0;
                     }
                     else
                     {
-                        adm = false;
+                        GlobalVariables.adm = 1;
                     }
                     this.Close();
                     nt = new Thread(ch.home);
