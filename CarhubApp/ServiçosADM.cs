@@ -35,8 +35,8 @@ namespace CarhubApp
 
         private void ServiçosADM_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'carhubDataSet2.servicos_solicitados'. Você pode movê-la ou removê-la conforme necessário.
-            this.servicos_solicitadosTableAdapter.Fill(this.carhubDataSet2.servicos_solicitados);
+            // TODO: esta linha de código carrega dados na tabela 'carhubDataSet3.servicos_solicitados'. Você pode movê-la ou removê-la conforme necessário.
+            this.servicos_solicitadosTableAdapter1.Fill(this.carhubDataSet3.servicos_solicitados);
 
         }
 
@@ -145,6 +145,14 @@ namespace CarhubApp
             {
                 MessageBox.Show(Convert.ToString(ex));
             }
+        }
+
+        private void b_clear_Click(object sender, EventArgs e)
+        {
+            tb_cdServ.Clear();
+            tb_cliente.Clear();
+            tb_preco.Clear();
+            tb_status.Clear();
         }
     }
 }

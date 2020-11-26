@@ -44,56 +44,70 @@ namespace CarhubApp
 
         private void PegarDataBtn_Click(object sender, EventArgs e)
         {
-            //Estes dados precisam ir para o banco de dados:
-            if (monthCalendar1.SelectionStart.DayOfWeek.ToString() == "Sunday")
+            if(monthCalendar1.SelectionRange.Start >= DateTime.Today)
             {
-                string message = "Desculpe, não abrimos aos domingos";
-                MessageBox.Show(message);
-            }
-            else
-            {
-                if(InputVeiculo.Text != "" && AnoComboBox.Text != "")
+                //Estes dados precisam ir para o banco de dados:
+                if (monthCalendar1.SelectionStart.DayOfWeek.ToString() == "Sunday")
                 {
-                    if(GlobalVariables.usernamelogin != null && GlobalVariables.usernamelogin != "")
+                    string message = "Desculpe, não abrimos aos domingos";
+                    MessageBox.Show(message);
+                }
+                else
+                {
+                    if (InputVeiculo.Text != "" && AnoComboBox.Text != "")
                     {
-                        try
+                        if(Convert.ToInt32(AnoComboBox.Text) <= 2020)
                         {
-                            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
-                            con.Open();
-                            SqlCommand cmd = new SqlCommand("insert into agenda(data, veiculo, ano, usuario_ag) values (@data, @veiculo, @ano, @usuario_ag)", con);
-                            cmd.Parameters.AddWithValue("@data", monthCalendar1.SelectionStart.ToShortDateString());
-                            cmd.Parameters.AddWithValue("@veiculo", Convert.ToString(InputVeiculo.Text));
-                            cmd.Parameters.AddWithValue("@ano", Convert.ToString(AnoComboBox.Text));
-                            cmd.Parameters.AddWithValue("@usuario_ag", GlobalVariables.usernamelogin);
-                            cmd.ExecuteNonQuery();
+                            if (GlobalVariables.usernamelogin != null && GlobalVariables.usernamelogin != "")
+                            {
+                                try
+                                {
+                                    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\iNayi\Desktop\carhub\CarhubApp\carhub.mdf;Integrated Security=True;Connect Timeout=30");
+                                    con.Open();
+                                    SqlCommand cmd = new SqlCommand("insert into agenda(data, veiculo, ano, usuario_ag) values (@data, @veiculo, @ano, @usuario_ag)", con);
+                                    cmd.Parameters.AddWithValue("@data", monthCalendar1.SelectionStart.ToShortDateString());
+                                    cmd.Parameters.AddWithValue("@veiculo", Convert.ToString(InputVeiculo.Text));
+                                    cmd.Parameters.AddWithValue("@ano", Convert.ToString(AnoComboBox.Text));
+                                    cmd.Parameters.AddWithValue("@usuario_ag", GlobalVariables.usernamelogin);
+                                    cmd.ExecuteNonQuery();
 
-                            con.Close();
+                                    con.Close();
 
-                            MessageBox.Show("Sua visita foi agendada!");
+                                    MessageBox.Show("Sua visita foi agendada!");
 
-                            this.Close();
-                            if (GlobalVariables.BackFromAgenda == 0)
-                                nt = new Thread(ch.home);
-                            else nt = new Thread(ch.servico);
-                            nt.SetApartmentState(ApartmentState.STA);
-                            nt.Start();
+                                    this.Close();
+                                    if (GlobalVariables.BackFromAgenda == 0)
+                                        nt = new Thread(ch.home);
+                                    else nt = new Thread(ch.servico);
+                                    nt.SetApartmentState(ApartmentState.STA);
+                                    nt.Start();
+                                }
+                                catch (SqlException error)
+                                {
+                                    MessageBox.Show("Erro marcando visita.");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Logue na sua conta primeiro.");
+                            }
                         }
-                        catch (SqlException error)
+                        else
                         {
-                            MessageBox.Show("Erro marcando visita.");
+                            MessageBox.Show("Digite um ano válido. (<2020)");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Logue na sua conta primeiro.");
+                        MessageBox.Show("Erro marcando visita.");
                     }
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Erro marcando visita.");
                 }
             }
+            else
+            {
+                MessageBox.Show("Coloque uma data válida. (Que não tenha passado.)");
+            }
+            
 
 
             
