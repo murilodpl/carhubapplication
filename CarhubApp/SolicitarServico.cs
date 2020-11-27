@@ -41,7 +41,7 @@ namespace CarhubApp
         {
             if (tb_desc_serv.Text != "" && tb_veic.Text != "" && cb_ano.Text != "") 
             {
-                if (Convert.ToInt32(cb_ano.Text) <= 2020)
+                if (Convert.ToInt32(cb_ano.Text) <= DateTime.Now.Year)
                 {
                     try
                     {
