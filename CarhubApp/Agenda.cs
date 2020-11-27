@@ -56,7 +56,7 @@ namespace CarhubApp
                 {
                     if (InputVeiculo.Text != "" && AnoComboBox.Text != "")
                     {
-                        if(Convert.ToInt32(AnoComboBox.Text) <= 2020)
+                        if(Convert.ToInt32(AnoComboBox.Text) <= DateTime.Now.Year)
                         {
                             if (GlobalVariables.usernamelogin != null && GlobalVariables.usernamelogin != "")
                             {
@@ -135,6 +135,11 @@ namespace CarhubApp
             nt = new Thread(ch.agendavisua);
             nt.SetApartmentState(ApartmentState.STA);
             nt.Start();
+        }
+
+        private void Agenda_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
